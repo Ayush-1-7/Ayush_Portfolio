@@ -17,7 +17,7 @@ This repository contains the source code for my cinematic personal portfolio. It
 *   **Physics-based Motion:** Butter-smooth scrolling using Lenis and ScrollTrigger.
 
 ## 🚀 Live Demo
-*(Insert Live URL Here)*
+[ayush-portfolio.vercel.app](https://ayush-portfolio-tau-lemon.vercel.app)
 
 ## 🛠️ Tech Stack & Architecture
 
