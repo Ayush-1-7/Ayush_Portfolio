@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Ayush Sharma — Data Analyst & Developer</title>
+  <meta name="description"
+    content="Data analyst and developer from Pune. I build dashboards, automate workflows, and ship full-stack apps." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="grain"></div>
+  <canvas id="space-canvas"></canvas>
+  <div class="cursor-dot" id="cursor-dot"></div>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <canvas id="pre-canvas"></canvas>
+    <div class="pre-content">
+      <div class="pre-status">
+        <span class="pre-label">SYSTEM INITIALIZING</span>
+        <div class="pre-counter-wrap">
+          <svg class="pre-ring" viewBox="0 0 100 100">
+            <circle class="pre-ring-bg" cx="50" cy="50" r="42" />
+            <circle class="pre-ring-fill" id="pre-ring-fill" cx="50" cy="50" r="42" stroke-dasharray="263.89"
+              stroke-dashoffset="263.89" />
+          </svg>
+          <span class="pre-counter" id="pre-counter">00%</span>
+        </div>
+      </div>
+      <div class="pre-line-container">
+        <div class="pre-fill" id="pre-fill"></div>
+      </div>
+      <div class="pre-terminal" id="pre-terminal">
+        <div class="pre-terminal-inner" id="pre-terminal-inner"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOUND -->
+  <button class="sound-toggle" id="sound-toggle">Sound Off</button>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav-logo">AYUSH SHARMA</a>
+    <div class="nav-links" id="nav-links">
+      <a href="#about" class="nav-item" data-hover><span>About</span><span>About</span></a>
+      <a href="#timeline" class="nav-item" data-hover><span>Timeline</span><span>Timeline</span></a>
+      <a href="#work" class="nav-item" data-hover><span>Work</span><span>Work</span></a>
+      <a href="#projects" class="nav-item" data-hover><span>Projects</span><span>Projects</span></a>
+      <a href="#skills" class="nav-item" data-hover><span>Skills</span><span>Skills</span></a>
+      <a href="#connect" class="nav-item" data-hover><span>Connect</span><span>Connect</span></a>
+    </div>
+    <button class="ham" id="ham" aria-label="Menu"><span></span><span></span></button>
+  </nav>
+  <div class="mob-menu" id="mob-menu">
+    <a href="#about">About</a><a href="#timeline">Timeline</a><a href="#work">Work</a>
+    <a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#connect">Connect</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-globe">
+      <canvas id="globe"></canvas>
+      <div id="globe-tooltip" class="globe-tooltip"></div>
+    </div>
+    <div class="hero-inner">
+      <span class="hero-label">AYUSH SHARMA</span>
+      <h1 class="hero-title">
+        <span class="hero-line">I build systems</span>
+        <span class="hero-line">that think in</span>
+        <span class="hero-line"><em class="hero-cycle" id="hero-cycle">data</em></span>
+      </h1>
+      <p class="hero-subtext rv">Data Engineer • Automation Architect • Problem Solver</p>
+      <div class="hero-cta rv">
+        <a href="#work" class="btn-primary" data-hover>View My Work</a>
+        <span class="scroll-ind">Explore Universe ↓</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT — 001 -->
+  <section class="sec" id="about">
+    <div class="wrap">
+      <span class="sec-num">001</span>
+      <span class="sec-label">Identity</span>
+
+      <div class="about-grid">
+        <!-- Typing Intro -->
+        <div class="about-intro">
+          <h2 class="typing-text" id="type-1"></h2>
+          <h2 class="typing-text" id="type-2"></h2>
+        </div>
+
+        <!-- Identity Card -->
+        <div class="glass-card id-card rv">
+          <div class="id-header">
+            <div class="id-avatar"></div>
+            <div class="id-title">
+              <h3>Ayush Sharma</h3>
+              <span>Data Engineer & Developer</span>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-row"><span class="id-lbl">Location</span><span class="id-val">Pune, India (UTC+5:30)</span>
+            </div>
+            <div class="id-row"><span class="id-lbl">Core Stack</span><span class="id-val">Python, Next.js, Power
+                BI</span></div>
+            <div class="id-row"><span class="id-lbl">Focus</span><span class="id-val">Scalable Pipelines & UI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Philosophy Blocks -->
+      <div class="philosophy-grid">
+        <div class="phil-block rv" data-hover>
+          <span class="phil-num">01</span>
+          <h3>Automate the repetitive.</h3>
+          <p>If a machine can do it, a human shouldn't. I build scripts that reclaim thousands of hours.</p>
+        </div>
+        <div class="phil-block rv" data-hover>
+          <span class="phil-num">02</span>
+          <h3>Visualize the invisible.</h3>
+          <p>Raw data is useless. I build dashboards that reveal the truth hiding in the noise.</p>
+        </div>
+        <div class="phil-block rv" data-hover>
+          <span class="phil-num">03</span>
+          <h3>Build things that scale.</h3>
+          <p>From full-stack apps to cloud infrastructure, I engineer systems meant to last.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE — 002 -->
+  <section class="sec sec-alt tl-wrapper" id="timeline">
+    <div class="wrap">
+      <span class="sec-num">002</span>
+      <span class="sec-label">Evolution</span>
+    </div>
+    <div class="tl-scroll-container">
+      <div class="tl-track" id="tl-track">
+
+        <div class="tl-card" data-hover>
+          <span class="tl-year">2020</span>
+          <div class="tl-dot"></div>
+          <h3>College Started</h3>
+          <p>Indore. A laptop. Zero idea. Typed 'Hello World'. Humble beginning.</p>
+        </div>
+
+        <div class="tl-card" data-hover>
+          <span class="tl-year">2022</span>
+          <div class="tl-dot"></div>
+          <h3>Data Obsession</h3>
+          <p>Found Power BI. Built a dashboard. People asked for more. The pivot started here.</p>
+        </div>
+
+        <div class="tl-card" data-hover>
+          <span class="tl-year">2023</span>
+          <div class="tl-dot"></div>
+          <h3>Cloud & DevOps Intern</h3>
+          <p>Rakuten Symphony. Docker, Prometheus, Grafana. Learned how systems stay alive.</p>
+        </div>
+
+        <div class="tl-card" data-hover>
+          <span class="tl-year">2023</span>
+          <div class="tl-dot"></div>
+          <h3>First Production AI App</h3>
+          <p>Built and shipped an AI Voice Bot for recruitment workflows. Still live.</p>
+        </div>
+
+        <div class="tl-card" data-hover>
+          <span class="tl-year">2024</span>
+          <div class="tl-dot"></div>
+          <h3>Graduated</h3>
+          <p>B.Tech CS. 8.7 CGPA. Learned more from side projects than lectures.</p>
+        </div>
+
+        <div class="tl-card highlight" data-hover>
+          <span class="tl-year">NOW</span>
+          <div class="tl-dot"></div>
+          <h3>Data Engineer & Developer</h3>
+          <p>Building the full picture: dashboards, automation, ETL, and full-stack apps.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK — 003 -->
+  <section class="sec" id="work">
+    <div class="wrap">
+      <span class="sec-num">003</span>
+      <span class="sec-label">Work</span>
+      <p class="sec-intro rv">Real impact. Real hours saved. Real code that runs in production.</p>
+      <div class="work-list">
+        <div class="work-item rv" data-hover>
+          <div class="wi-top"><span class="wi-tag">Power BI · ETL</span>
+            <h3>Mobility Analytics Platform</h3>
+          </div>
+          <div class="wi-detail">
+            <p>End-to-end workforce analytics. Multi-source ETL. Real-time planning.</p><span class="wi-stat">200+ hrs
+              saved/year</span>
+          </div>
+        </div>
+        <div class="work-item rv" data-hover>
+          <div class="wi-top"><span class="wi-tag">Power BI · DAX</span>
+            <h3>Incentive Tracker</h3>
+          </div>
+          <div class="wi-detail">
+            <p>Automated commission calculations. 100% payout transparency.</p><span class="wi-stat">150+ hrs
+              eliminated</span>
+          </div>
+        </div>
+        <div class="work-item rv" data-hover>
+          <div class="wi-top"><span class="wi-tag">Power BI · Compliance</span>
+            <h3>Hiring Pipeline Dashboard</h3>
+          </div>
+          <div class="wi-detail">
+            <p>Replaced an email chain with a live dashboard. Background verification in real time.</p><span
+              class="wi-stat">35% faster cycles</span>
+          </div>
+        </div>
+        <div class="work-item rv" data-hover>
+          <div class="wi-top"><span class="wi-tag">Power Automate · VBA</span>
+            <h3>ILT Training Automation</h3>
+          </div>
+          <div class="wi-detail">
+            <p>300+ training programs. Fully automated. Biggest time-save I've ever shipped.</p><span
+              class="wi-stat">2,700+ hrs saved</span>
+          </div>
+        </div>
+        <div class="work-item rv" data-hover>
+          <div class="wi-top"><span class="wi-tag">Python · Pandas</span>
+            <h3>Python ETL Engine</h3>
+          </div>
+          <div class="wi-detail">
+            <p>Backend scripts that standardize messy datasets before they hit the BI layer.</p><span
+              class="wi-stat">120+ hrs saved</span>
+          </div>
+        </div>
+        <div class="work-item rv" data-hover>
+          <div class="wi-top"><span class="wi-tag">Power Automate</span>
+            <h3>Meeting Scheduler Bot</h3>
+          </div>
+          <div class="wi-detail">
+            <p>Reads calendar availability. Sends invites. Books onboarding slots. Zero human in the loop.</p><span
+              class="wi-stat">250+ hrs saved</span>
+          </div>
+        </div>
+        <div class="work-item rv" data-hover>
+          <div class="wi-top"><span class="wi-tag">Power Automate · UI</span>
+            <h3>Mass Comms Platform</h3>
+          </div>
+          <div class="wi-detail">
+            <p>Customizable communication tool. Personalised bulk messages at scale.</p><span class="wi-stat">10,000+
+              recipients</span>
+          </div>
+        </div>
+        <div class="work-item rv" data-hover>
+          <div class="wi-top"><span class="wi-tag">HTML · CSS · JS · Figma</span>
+            <h3>Intranet Redesign</h3>
+          </div>
+          <div class="wi-detail">
+            <p>Took a legacy portal and rebuilt it. Clean, responsive, actually usable.</p><span class="wi-stat">50+
+              apps consolidated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS — 004 -->
+  <section class="sec" id="projects">
+    <div class="wrap">
+      <span class="sec-num">004</span>
+      <span class="sec-label">My Own Stuff</span>
+      <p class="sec-intro rv">No briefs. No deadlines. Just a problem and a weekend.</p>
+    </div>
+
+    <div class="proj-scroll-wrapper">
+      <div class="proj-track" id="proj-track">
+
+        <div class="proj-card rv" data-hover>
+          <div class="proj-visual">
+            <div class="pv-wave" id="pv-wave"></div>
+          </div>
+          <div class="proj-info">
+            <span class="proj-num">PROJECT 01</span>
+            <h2>AI Voice Bot</h2>
+            <h4>Virtual Recruitment Assistant</h4>
+            <p>Browser-based AI voice assistant for recruitment workflows. Talks to candidates. Understands responses.
+              Deployed. Actually works.</p>
+            <div class="proj-stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Web Speech
+                API</span><span>Vercel</span></div>
+            <div class="proj-links"><a href="https://ayush-s-ai-voice-bot.vercel.app/" target="_blank"
+                class="btn-primary" data-hover>→ Live Demo</a><a
+                href="https://github.com/Ayush-1-7/Ayush-s-AI-Voice-Bot" target="_blank" class="btn-ghost"
+                data-hover>GitHub ↗</a></div>
+          </div>
+        </div>
+
+        <div class="proj-card rv" data-hover>
+          <div class="proj-visual">
+            <div class="pv-dash" id="pv-dash"></div>
+          </div>
+          <div class="proj-info">
+            <span class="proj-num">PROJECT 02</span>
+            <h2>ElevateHR</h2>
+            <h4>Premium HR Management Platform</h4>
+            <p>Full-stack HRMS. Next.js 16, MongoDB Atlas, TypeScript. Executive dashboard, attendance tracking, payroll
+              management, PDF exports. 55 seeded employees. Production-deployed.</p>
+            <div class="proj-stack"><span>Next.js 16</span><span>TypeScript</span><span>MongoDB</span><span>Tailwind CSS
+                4</span><span>Recharts</span><span>jsPDF</span><span>Vercel</span></div>
+            <div class="proj-links"><a href="https://pyhrms.vercel.app/dashboard" target="_blank" class="btn-primary"
+                data-hover>→ Live App</a><a href="https://github.com/Ayush-1-7/Py_HRMS" target="_blank"
+                class="btn-ghost" data-hover>GitHub ↗</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS — 005 -->
+  <section class="sec" id="skills" style="position:relative; height:100vh; padding:0; overflow:hidden;">
+    <div class="skills-header">
+      <div class="skills-meta">
+        <span class="sec-num">005</span>
+        <span class="sec-label" style="margin-bottom:0;">My Ecosystem</span>
+      </div>
+      <p class="skills-intro">Hover to explore. Click for details.</p>
+      <div class="view-toggles">
+        <button id="btn-network" class="view-btn active">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3" />
+            <circle cx="4" cy="4" r="2" />
+            <circle cx="20" cy="4" r="2" />
+            <circle cx="4" cy="20" r="2" />
+            <circle cx="20" cy="20" r="2" />
+            <line x1="12" y1="9" x2="5" y2="5.5" />
+            <line x1="12" y1="9" x2="19" y2="5.5" />
+            <line x1="12" y1="15" x2="5" y2="18.5" />
+            <line x1="12" y1="15" x2="19" y2="18.5" />
+          </svg>
+          Network
+        </button>
+        <button id="btn-radar" class="view-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5" />
+            <line x1="12" y1="2" x2="12" y2="22" />
+            <line x1="2" y1="8.5" x2="22" y2="15.5" />
+            <line x1="22" y1="8.5" x2="2" y2="15.5" />
+          </svg>
+          Radar
+        </button>
+      </div>
+    </div>
+    <canvas id="skills-canvas"
+      style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; cursor:grab;"></canvas>
+
+    <div id="skill-tooltip" class="skill-tooltip">
+      <strong id="st-name"></strong>
+      <span id="st-desc"></span>
+    </div>
+
+    <div id="skill-sidepanel" class="skill-sidepanel">
+      <div class="panel-header">
+        <h3 id="sp-name">Tool Name</h3>
+        <button id="sp-close" class="sp-close">&times;</button>
+      </div>
+      <div class="panel-content">
+        <div class="sp-row">
+          <span class="sp-label">ROLE</span>
+          <span class="sp-val" id="sp-role">...</span>
+        </div>
+        <div class="sp-row">
+          <span class="sp-label">EXPERIENCE</span>
+          <span class="sp-val" id="sp-exp">...</span>
+        </div>
+        <div class="sp-row" style="flex-direction:column; align-items:flex-start; gap:8px;">
+          <span class="sp-label">PROJECT USAGE</span>
+          <p class="sp-desc" id="sp-usage">...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS — 006 -->
+  <section class="sec sec-alt" id="numbers">
+    <div class="wrap">
+      <span class="sec-num">006</span>
+      <span class="sec-label">Numbers</span>
+      <div class="numbers-row">
+        <div class="num-item rv"><span class="num-val" data-t="12" data-s="+">0</span><span
+            class="num-lbl">Dashboards</span></div>
+        <div class="num-item rv"><span class="num-val" data-t="4700" data-s="+">0</span><span class="num-lbl">Hours
+            Saved</span></div>
+        <div class="num-item rv"><span class="num-val" data-t="15" data-p="$" data-s="K+">0</span><span
+            class="num-lbl">USD Impact</span></div>
+        <div class="num-item rv"><span class="num-val" data-t="8.7" data-d="1">0</span><span class="num-lbl">CGPA</span>
+        </div>
+        <div class="num-item rv"><span class="num-val" data-t="1" data-s="+">0</span><span class="num-lbl">AWS
+            Cert</span></div>
+      </div>
+      <p class="numbers-note rv"><em>These aren't estimates. These are documented.</em></p>
+    </div>
+  </section>
+
+  <!-- CONNECT — 007 -->
+  <section class="sec" id="connect">
+    <div class="wrap">
+      <span class="sec-num">007</span>
+      <span class="sec-label">Connect</span>
+      <div class="connect-statement rv">
+        <p>Good data tells a story.</p>
+        <p><strong>Let's figure out yours.</strong></p>
+      </div>
+      <div class="connect-links">
+        <a href="https://github.com/Ayush-1-7" target="_blank" class="cl rv" data-hover>
+          <h3>GitHub</h3><span>Where the actual code lives</span><small>github.com/Ayush-1-7</small>
+        </a>
+        <a href="https://linkedin.com/in/ayush-sharma-" target="_blank" class="cl rv" data-hover>
+          <h3>LinkedIn</h3><span>The professional version of me</span><small>linkedin.com/in/ayush-sharma–</small>
+        </a>
+        <a href="mailto:ayush17ssh@gmail.com" class="cl rv" data-hover>
+          <h3>Email</h3><span>100% chance I read it</span><small>ayush17ssh@gmail.com</small>
+        </a>
+        <a href="tel:+917000877763" class="cl rv" data-hover>
+          <h3>Phone</h3><span>~60% chance I pick up</span><small>+91-7000877763</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS — 008 -->
+  <section class="sec sec-alt" id="credentials">
+    <div class="wrap">
+      <span class="sec-num">008</span>
+      <span class="sec-label">Credentials</span>
+      <div class="creds-layout">
+        <div class="cred-edu rv">
+          <h3>B.Tech Computer Science Engineering</h3>
+          <p>Medi-Caps University · Indore · 2020–2024</p>
+          <span class="cred-gpa">CGPA: 8.7 / 10.0</span>
+        </div>
+        <div class="cred-certs">
+          <div class="cert-item featured rv">⭐ AWS Certified Cloud Practitioner (CLF-C02)</div>
+          <div class="cert-item rv">AWS Academy — Cloud Foundations</div>
+          <div class="cert-item rv">AWS Academy — Cloud Architecting</div>
+          <div class="cert-item rv">Python — Kaggle / Google</div>
+          <div class="cert-item rv">MySQL — HackerRank</div>
+          <div class="cert-item rv">C++ — CodeChef</div>
+          <div class="cert-item rv">Web Development — Udemy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOTTO -->
+  <section class="motto-section">
+    <div class="wrap">
+      <span class="motto-label rv">MY MOTTO</span>
+      <h2 class="motto-text rv">Good<br>data<br>is honest</h2>
+      <p class="motto-credit rv">— Ayush Sharma (stolen energy from Dieter Rams)</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="f-name">Ayush Sharma</span>
+      <div class="f-links">
+        <a href="https://github.com/Ayush-1-7" target="_blank" data-hover>GitHub</a>
+        <a href="https://linkedin.com/in/ayush-sharma-" target="_blank" data-hover>LinkedIn</a>
+        <a href="mailto:ayush17ssh@gmail.com" data-hover>Email</a>
+      </div>
+    </div>
+    <p class="f-credit">Designed and built by Ayush Sharma · Pune, 2025 · Made with Three.js, GSAP, and a concerning
+      amount of caffeine.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
