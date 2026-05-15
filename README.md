@@ -1,6 +1,20 @@
-# Ayush Sharma — Personal Portfolio
+# Ayush Sharma — Personal Portfolio 🌌
 
-This repository contains the source code for my personal portfolio website, designed to showcase my journey as a Data Engineer, Automation Architect, and Developer.
+> **"Good data is honest."**
+
+This repository contains the source code for my cinematic personal portfolio. It's more than just a resume—it's an interactive 3D experience designed to showcase my journey as a **Data Engineer**, **Automation Architect**, and **Full-stack Developer**.
+
+### 📊 Impact at a Glance
+*   **4,700+ Hours** saved through production-grade automation.
+*   **12+ Dashboards** deployed for executive-level decision making.
+*   **$15K+ USD** documented business impact.
+*   **8.7 CGPA** B.Tech in Computer Science & Engineering.
+
+### ✨ Key Interactive Features
+*   **Hyper-realistic Hero Globe:** A custom Three.js implementation representing global data connectivity.
+*   **Interactive Skills Galaxy:** A dual-mode (Network/Radar) canvas system for exploring my tech ecosystem.
+*   **Terminal Preloader:** A GSAP-sequenced "system boot" simulation.
+*   **Physics-based Motion:** Butter-smooth scrolling using Lenis and ScrollTrigger.
 
 ## 🚀 Live Demo
 *(Insert Live URL Here)*
